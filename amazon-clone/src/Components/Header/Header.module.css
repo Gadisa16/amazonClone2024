@@ -13,6 +13,13 @@
     height: 70px;
 }
 
+
+.fixed{
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 .logo_container{
     display: flex;
     align-items: center;
@@ -49,6 +56,7 @@
     overflow: hidden;
     width: 100%;
     flex: 1;
+    
 }
 
 .search select,
@@ -74,6 +82,8 @@
     padding: 7px;
     background-color: #febd69;
     color: black;
+    /* box-sizing: border-box; */
+
 }
 
 .search svg:hover {

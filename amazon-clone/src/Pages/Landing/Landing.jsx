@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from "../../Components/Layout/LayOut"
+import Layout from "../../Components/LayOut/LayOut"
 import Carousel from "../../Components/Carousol/Carousel"
 import Category from '../../Components/Catagories/Category';
 import Product from "../../Components/Product/Product"

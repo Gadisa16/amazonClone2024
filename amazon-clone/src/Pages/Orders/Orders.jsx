@@ -1,11 +1,17 @@
 import React from 'react'
+import LayOut from '../../Components/LayOut/LayOut'
 
 function Orders() {
   return (
-    <div>
-      orders
-    </div>
+
+    <LayOut>
+      <div>
+        orders
+      </div>
+    </LayOut>
   )
 }
+   
+
 
 export default Orders

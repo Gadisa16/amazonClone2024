@@ -1,10 +1,15 @@
 import React from 'react'
+import LayOut from '../../Components/LayOut/LayOut'
 
 function Signup() {
   return (
-    <div>
-      signup
-    </div>
+
+    <LayOut>
+      <div>
+    signup
+  </div>
+  </LayOut>
+    
   )
 }
 
