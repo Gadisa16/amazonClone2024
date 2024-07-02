@@ -1,0 +1,21 @@
+.container {
+    text-align: center;
+}
+
+.select {
+    padding: 10px;
+    margin-top: 20px;
+    width: 200px;
+}
+
+.button {
+    padding: 6px 30px;
+    margin-top: 10px;
+    background-color: var(--primary-color);
+    border-radius: 5%;
+    border: none;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: var(--primary-shade);
+}

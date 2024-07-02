@@ -1,21 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Header from './Components/Header/Header.jsx';
-import CarouselEffect from './Components/Carousol/Carousel.jsx';
-import Category from './Components/Catagories/Category.jsx';
-import Product from './Components/Product/Product.jsx';
+import react, {useContext, useEffect} from 'react';
 import Routing from './Router.jsx';
+import { DataContext } from "./Components/DataProvider/DataProvider.jsx";
+import { auth } from "./Utility/firebase";
+import { Type } from "./Utility/action.type";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [{ user }, dispatch] = useContext(DataContext);
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch({
+          type: Type.SET_USER,
+          user: authUser
+        })
+      } else {
+        dispatch({
+          type: Type.SET_USER,
+          user: null
+        })
+      }
+    })
+  }, []);
 
   return (
     <>
-     <Routing/>
-     
-      </>
+      <Routing/>
+
+    </>
   )
 }
 

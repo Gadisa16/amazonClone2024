@@ -10,7 +10,7 @@ function CarouselEffect() {
       <Carousel
         autoplay={true}
         infiniteLoop={true}
-        showIndicators={true}
+        showIndicators={false}
         showThumbs={false}
       >
         {img.map((ImageItemLink, index) => (

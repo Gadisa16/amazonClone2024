@@ -2,12 +2,13 @@ import React,{useContext} from 'react'
 import Layout from "../../Components/LayOut/LayOut"
 import {DataContext} from '../../Components/DataProvider/DataProvider'
 import ProductCard from '../../Components/Product/ProductCard'
-import CurrencyFormat from '../../Components/CurrencyFormat/CurrencyFormat'
+// import CurrencyFormat from '../../Components/CurrencyFormat/CurrencyFormat'
 import {Link} from 'react-router-dom'
 import classes from './Cart.module.css'
 import {Type} from "../../Utility/action.type"
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+import numeral from 'numeral'
 
 function Cart() {
   const [{basket},dispatch]=useContext(DataContext);
@@ -27,7 +28,7 @@ function Cart() {
     })
   }
   return (
-    <Layout> 
+    <Layout>
    <section className={classes.container}>
     <div className={classes.cart_container}> 
       <h2>Hello</h2>
@@ -35,12 +36,12 @@ function Cart() {
       <hr />
       {
         basket?.length==0?(<p>Opps ! No item in your cart</p>):(
-         basket?.map((item,i)=>{
+        basket?.map((item,i)=>{
 return <section className={classes.cart_product}>
   <ProductCard
-       key={i} 
-       product={item}
-       renderDesc={true}
+      key={i} 
+      product={item}
+      renderDesc={true}
       renderAdd={false}
       flex={true}
       />
@@ -55,7 +56,7 @@ return <section className={classes.cart_product}>
             </div>
 </section>
 
-         } )
+        } )
         )
       }
     </div>
@@ -64,11 +65,12 @@ return <section className={classes.cart_product}>
     <div className={classes.subtotal}>
 <div>
 <p>Subtotal ({basket?.length} items)</p>
-<CurrencyFormat amount={total} />
+{/* <CurrencyFormat amount={total} /> */}
+  {numeral(total).format("$0,0.00")}
 </div>
 <span>
   <input type="checkbox" />
-  <small>Thia order contains a gift</small>
+  <small>This order contains a gift</small>
 </span>
 <Link to="/payments">Continue to checkout
 </Link>
@@ -76,7 +78,7 @@ return <section className={classes.cart_product}>
   )
 }
     
-   </section>  
+  </section>
 </Layout>
   )
 }

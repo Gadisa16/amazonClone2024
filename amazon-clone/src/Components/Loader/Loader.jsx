@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridLoader } from 'react-spinners';
+import { PulseLoader } from 'react-spinners';
 
 function Loader() {
   return (
@@ -11,7 +11,12 @@ function Loader() {
         height: "50vh",
       }}
     >
-      <GridLoader color="#36d7b7" />
+    <PulseLoader
+        color="rgba(54, 215, 183, 1)"
+        margin={6}
+        size={10}
+        speedMultiplier={2}
+    />
     </div>
   );
 }

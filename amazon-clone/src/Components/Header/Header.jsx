@@ -6,10 +6,12 @@ import { BiCart } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
 import { SlLocationPin } from "react-icons/sl";
 import { DataContext } from '../DataProvider/DataProvider';
+import { auth } from "../../Utility/firebase";
+
 
 const header = ()=> {
 
-    const [{basket},dispatch] = useContext(DataContext)
+    const [{user, basket},dispatch] = useContext(DataContext)
     // console.log(basket.length)
     const totalItem=basket?.reduce((amount,item)=>{
         return item.amount + amount
@@ -30,7 +32,7 @@ const header = ()=> {
                 <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon logo" />
             </Link>
             {/* delivery */}
-           <div className={classes.delivery}> 
+            <div className={classes.delivery}> 
             <span>
             <SlLocationPin />
             </span>
@@ -44,27 +46,42 @@ const header = ()=> {
       {/* search section */}
         <div className={classes.search}>
             <select name="" id="">
-             <option value="">All</option>
+            <option value="">All</option>
             </select>
             <input type="text" />
-            <BsSearch size={25} />
+            <BsSearch size={39} />
         </div>
 
         {/* Right sind links */}
         < div className={classes.order_container}>
-        <Link to="" className={classes.language}>
+        <Link to="/Languages" className={classes.language}>
                 <img src="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg" alt="" />
-                <select name="" id="">
+                <select className={classes.select} name="" id="">
                     <option value="">EN</option>
+                    <option value="">ES</option>
+                    <option value="">FR</option>
+                    <option value="">DE</option>
+                    
                 </select>
             </Link>
 
-         
-            
             {/* Three components */}
-            <Link to=""> 
-                    <p>Hello, sign in</p>
-                    <span>Account & Lists</span>
+            <Link to={!user && "/auth"}>
+                <div>
+                    {
+                        user ? (
+                            <>
+                                <p>Hello, {user?.email?.split("@")[0]}</p>
+                                <span onClick={() => auth.signOut()} >Sign out</span>
+                            </>
+                            ):(
+                            <>
+                                <p>Hello, Sign in</p>
+                                <span>Account & Lists</span>
+                            </>)
+                    }
+                </div>
+                
                 
             </Link>
             {/* Orders */}
