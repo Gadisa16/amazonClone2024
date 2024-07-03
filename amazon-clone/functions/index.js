@@ -8,6 +8,7 @@ const stripe = require("stripe")(process.env.VITE_FIREBASE_STRIPE_KEY);
 const app= express()
 app.use(cors({origin:true}))
 app.use(express.json())
+setGlobalOptions({ maxInstances:10 })
 
 app.get("/",(req,res)=>{
     res.status(200).json({
