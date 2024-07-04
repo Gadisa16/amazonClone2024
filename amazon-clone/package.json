@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+  "start": "vite",
+  "build": "vite build",
+  "serve": "vite preview"
+}
+,
   "dependencies": {
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.18",
