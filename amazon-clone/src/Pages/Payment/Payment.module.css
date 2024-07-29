@@ -1,74 +1,62 @@
 .payment_header {
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    background-color: rgb(234, 237, 237);
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  background-color: rgb(234, 237, 237);
 }
-
 .payment {
-    padding: 30px;
+  padding: 30px;
 }
-
 .flex {
-    display: flex;
-    gap: 20px;
-    padding: 30px;
+  display: flex;
+  gap: 20px;
+  padding: 30px;
 }
-
 .flex h3 {
-    min-width: 300px;
+  min-width: 300px;
 }
-
 .flex img {
-    width: 80px !important;
+  width: 80px !important;
 }
-
 .flex div {
-    height: auto !important;
+  height: auto !important;
 }
-
 .payment_card_container {
-    max-width: 350px;
-    width: 100%;
+  max-width: 350px;
+  width: 100%;
 }
-
 /* .payment_details{
  font-size: 20px;
 } */
 .payment_price {
-    padding: 20px;
+  padding: 20px;
 }
-
-.payment_price>div {
-    display: flex;
-    font-size: 16px;
-    gap: 10px;
+.payment_price > div {
+  display: flex;
+  font-size: 16px;
+  gap: 10px;
 }
-
 .payment_details button {
-    margin-top: 15px;
-    width: 100%;
-    border: none;
-    background-color: var(--primary-color);
-    border-radius: 5px;
-    padding: 8px 10px;
-    cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
 }
-
 .payment_details button:hover {
-    background-color: var(--primary-shade);
+  background-color: var(--primary-shade);
 }
-
-.loading {
+.loading{
     display: flex;
     align-items: center;
     gap: 10px;
     justify-content: center;
-    color: rgb(52, 52, 52);
+    color: rgb(52,52,52);
 }
-
-@media screen and (max-width:768px) {
-    .flex {
-        flex-direction: column;
-    }
+@media screen and (max-width:768px){
+  .flex{
+    flex-direction: column;
+  }
 }

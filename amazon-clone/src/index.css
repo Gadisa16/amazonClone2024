@@ -5,12 +5,6 @@
   box-sizing: border-box;
 }
 
-.body {
-  overflow-x: hidden;
-
-
-}
-
 :root {
   --primary-color: #febd69;
   --primary-shade: #d49644;

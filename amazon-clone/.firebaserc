@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "clone-df1cc"
-  }
+    "default": "clone-df1cc",
+    "amazon-clone": "clone-1dc1e"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
