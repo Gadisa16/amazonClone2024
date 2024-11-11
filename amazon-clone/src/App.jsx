@@ -1,14 +1,12 @@
-
 import './App.css';
-import React,{useContext,useEffect} from 'react';
+import React, {useContext,useEffect} from 'react';
 import {DataContext} from "./Components/DataProvider/DataProvider.jsx";
 import {Type} from './Utility/action.type.js';
-import {auth} from './Utility/firebase.js'
+import {auth} from './Utility/firebase.js';
+import Routing from "./Router.jsx";
 
-
-import Routing from "./Router.jsx"
 function App() {
-  const [{user},dispatch]=useContext(DataContext);
+  const [{user}, dispatch] = useContext(DataContext);
   useEffect(()=>{
     auth.onAuthStateChanged((authUser)=>{
       if(authUser){
@@ -25,9 +23,10 @@ function App() {
       }
     })
   },[])
+
   return (
     <div className="App">
-     <Routing />
+      <Routing />
     </div>
   );
 }

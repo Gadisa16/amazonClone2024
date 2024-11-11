@@ -19,6 +19,7 @@ import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 const stripePromise = loadStripe(
   "pk_test_51OiuvEJ8Z4w6FD5CcdwuKE7HSGbrT48Lk9eAKBFnnbbNfcUHYthDO3GrsTMKCTSEFnqaTImLm4s15euolRHw7jsW00YLYya4jK"
 );
+
 function Routing() {
   return (
     <Router>

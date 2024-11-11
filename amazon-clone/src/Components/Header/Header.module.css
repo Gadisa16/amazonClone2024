@@ -119,13 +119,13 @@ font-size: 10px;
     position: relative;
 }
 .cart span{
- position: absolute;   
- font-weight: bold;
- top: -6px;
- font-size: 20px;
- background-color: #1a1a1a;
- left: 16px;
- color: orange;
+    position: absolute;
+    font-weight: bold;
+    bottom: 21px;
+    font-size: 20px;
+    background-color: #1a1a1a;
+    right:9px;
+    color: orange;
 }
 .order_container a:hover,
 .logo_container a:hover,

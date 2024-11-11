@@ -11,7 +11,7 @@ function CategoryCard({data}) {
         </span>
         <img src={data.imgLink} alt="" />
         <p>shop now</p>
-      </Link>  
+      </Link>
     </div>
   )
 }
