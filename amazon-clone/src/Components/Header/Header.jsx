@@ -84,14 +84,14 @@ function Header() {
 
                 {/* Orders link */}
                 <Link to="/orders">
-                <p>Returns</p>
-                <span>& Orders</span>
+                    <p>Returns</p>
+                    <span>& Orders</span>
                 </Link>
 
                 {/* Cart link */}
                 <Link to="/cart" className={classes.cart}>
-                <BiCart size={35} />
-                <span>{totalItem}</span>
+                    <BiCart size={35} />
+                    <span>{totalItem}</span>
                 </Link>
             </div>
             </div>

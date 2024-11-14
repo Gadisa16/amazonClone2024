@@ -1,34 +1,37 @@
 import './App.css';
-import React, {useContext,useEffect} from 'react';
-import {DataContext} from "./Components/DataProvider/DataProvider.jsx";
-import {Type} from './Utility/action.type.js';
-import {auth} from './Utility/firebase.js';
-import Routing from "./Router.jsx";
+import React, { useContext, useEffect } from 'react';
+import { DataContext } from './Components/DataProvider/DataProvider.jsx';
+import { Type } from './Utility/action.type.js';
+import { auth } from './Utility/firebase.js';
+import Routing from './Router.jsx';
 
-function App() {
-  const [{user}, dispatch] = useContext(DataContext);
-  useEffect(()=>{
-    auth.onAuthStateChanged((authUser)=>{
-      if(authUser){
-        // console.log(authUser)
+const App = () => {
+  const [{ user }, dispatch] = useContext(DataContext);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
         dispatch({
-          type:Type.SET_USER,
+          type: Type.SET_USER,
           user: authUser,
         });
-      }else{
+      } else {
         dispatch({
-          type:Type.SET_USER,
+          type: Type.SET_USER,
           user: null,
         });
       }
-    })
-  },[])
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, [dispatch]);
 
   return (
     <div className="App">
       <Routing />
     </div>
   );
-}
+};
 
 export default App;
