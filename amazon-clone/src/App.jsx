@@ -25,7 +25,7 @@ const App = () => {
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="App">

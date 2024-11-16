@@ -1,4 +1,3 @@
-// import { setGlobalOptions } from "firebase-functions/v2";
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const express= require("express")
@@ -7,18 +6,17 @@ const dotenv= require("dotenv")
 dotenv.config();
 const stripe = require("stripe")(process.env.VITE_FIREBASE_STRIPE_KEY);
 
-const app= express()
-app.use(cors({origin:true}))
-app.use(express.json())
-setGlobalOptions({ maxInstances:10 })
+const app= express();
+app.use(cors({origin:true}));
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) =>{
     res.status(200).json({
-        message:"Success !"
-    })
+        message:"Hello World!",
+    });
 })
 
-app.post("/payment/create",async(req,res)=>{
+
+app.post("/payment/create", async(req,res) => {
     const total= parseInt(req.query.total);
 
     if(total > 0){
@@ -36,4 +34,4 @@ app.post("/payment/create",async(req,res)=>{
     }
 })
 
-exports.api=onRequest(app)
+exports.api = onRequest(app);
