@@ -31,8 +31,9 @@
 
 .category_container {
     position: relative;
-    margin-top: -7%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     place-items: center;
+    margin: -7% auto 0;
+    gap: 35px;
 }

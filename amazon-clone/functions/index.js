@@ -2,11 +2,17 @@ const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const express= require("express")
 const cors= require("cors")
-const dotenv= require("dotenv")
+const dotenv= require("dotenv");
+const { setGlobalOptions } = require("firebase-functions/v2");
 dotenv.config();
 const stripe = require("stripe")(process.env.VITE_FIREBASE_STRIPE_KEY);
 
 const app= express();
+
+setGlobalOptions({
+    maxInstances: 10,
+}) // maxInstances: 10, 10 instances of the function can run at the same time, this needed after our functions is deployed
+
 app.use(cors({origin:true}));
 
 app.get("/", (req, res) =>{
@@ -35,3 +41,5 @@ app.post("/payment/create", async(req,res) => {
 })
 
 exports.api = onRequest(app);
+
+//baseUrl: "http://127.0.0.1:5001/clone2-f66f1/us-central1/api"
